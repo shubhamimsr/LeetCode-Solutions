@@ -1,9 +1,10 @@
 class MyStack {
 
-    Queue<Integer> q1 = new LinkedList<>();
-    Queue<Integer> q2 = new LinkedList<>();
+    Queue<Integer> q1;
+    Queue<Integer> q2;
     public MyStack() {
-        
+        this.q1 = new LinkedList<>();
+        this.q2 = new LinkedList<>();
     }
     
     public void push(int x) {
