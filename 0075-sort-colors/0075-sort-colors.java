@@ -1,11 +1,24 @@
 class Solution {
     public void sortColors(int[] nums) {
-        Arrays.sort(nums);
-        LinkedList<Integer> list = new LinkedList<>();
-        for(Integer value : nums){
-            list.add(value);
-        }
+        int left=0,
+        right=nums.length-1,
+        i=0;
         
-        System.out.println(list);
+        while(i <= right){
+            if(nums[i] == 0){
+                swap(nums, left++, i++);
+            }else if(nums[i] == 2){
+                swap(nums, right-- , i);
+            }else{
+                i++;
+            }
+        }
+    }
+    
+    
+    public void swap(int []nums, int a, int b){
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
     }
 }
