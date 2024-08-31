@@ -10,7 +10,7 @@ class Solution {
                 fr = m;
             }else if(nums[m] < target){
                 l = m+1;
-                fr = l;
+                fr = m+1;
             }
         }
         return fr;
