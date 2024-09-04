@@ -1,7 +1,6 @@
 class Solution {
     public String reverseStr(String s, int k) {
         StringBuilder sb = new StringBuilder();
-        // String temp = "";
         while(s.length() >= 2*k){
             String temp = s.substring(0,k);
             sb.append(new StringBuilder(temp).reverse());
