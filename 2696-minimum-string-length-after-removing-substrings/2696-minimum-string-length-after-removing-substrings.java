@@ -1,17 +1,17 @@
 class Solution {
     public int minLength(String s) {
-        Stack<Character> st = new Stack<>();
+        Stack<Character> stack = new Stack<>();
         
         for(char c : s.toCharArray()){
-            if(!st.isEmpty()){
-                char top = st.peek();
+            if(!stack.isEmpty()){
+                char top = stack.peek();
                 if(top == 'A' && c == 'B' || top == 'C' && c == 'D'){
-                    st.pop();
+                    stack.pop();
                     continue;
                 }
             }
-            st.push(c);
+            stack.push(c);
         }
-        return st.size();
+        return stack.size();
     }
 }
