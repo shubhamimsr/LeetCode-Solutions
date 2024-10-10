@@ -16,8 +16,7 @@ class Solution {
             sb.append(head.val);
             head = head.next;
         }
-        String binaryString = sb.toString();
-        int intVal = Integer.parseInt(binaryString, 2);
+        int intVal = Integer.parseInt(sb.toString(), 2);
         return intVal;
     }
 }
