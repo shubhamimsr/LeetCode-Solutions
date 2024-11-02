@@ -12,7 +12,6 @@ class Solution {
     public ListNode doubleIt(ListNode head) {
         Stack<Integer> stack = new Stack<>();
         int carry = 0;
-        int placeValue = 1;
         while(head != null){
             stack.push(head.val);
             head = head.next;
@@ -25,17 +24,8 @@ class Solution {
             ListNode newNode = new ListNode(sum%10);
             newNode.next = result;
             result = newNode;
-            // combinedNumber = combinedNumber + stack.pop() * placeValue;
-            // placeValue = placeValue * 10;
         }
-        
-        // combinedNumber = combinedNumber * 2;
-        // while(combinedNumber != 0){
-        //     resultList.next = new ListNode(combinedNumber/placeValue);
-        //     resultList = resultList.next;
-        //     combinedNumber = combinedNumber % placeValue;
-        //     placeValue = placeValue / 10;
-        // }
+   
         return result;
     }
 }
