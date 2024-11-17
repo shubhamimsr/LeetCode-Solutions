@@ -1,6 +1,6 @@
 class Solution {
     public int addDigits(int num) {
-        while(num >= 10){
+          while(num >= 10){
             num = sumOfDigits(num);
         }
         return num;
@@ -14,5 +14,6 @@ class Solution {
         }
         
         return sum;
+    
     }
 }
