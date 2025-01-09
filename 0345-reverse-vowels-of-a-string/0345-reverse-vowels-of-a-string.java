@@ -1,22 +1,21 @@
 class Solution {
     public String reverseVowels(String s) {
-        Stack<Character> stack = new Stack<>();
-        String result = "";
-        for(Character ch : s.toCharArray()){
-            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-               ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ){
-                stack.push(ch);
-            }
+       char arr[] = s.toCharArray();
+       int left = 0,
+        right = arr.length-1;
+        String vowels = "aeiouAEIOU";
+
+        while(left < right){
+            if(vowels.indexOf(arr[left]) == -1) { left++;  continue;}
+            if(vowels.indexOf(arr[right])== -1) { right--;    continue;}
+
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
         }
-        for(Character ch : s.toCharArray()){
-            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-               ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'){
-                result = result + stack.pop();
-            }else{
-                result = result + ch;
-            }
-        }
-        
-        return result;
+        return new String(arr);
     }
 }
