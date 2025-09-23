@@ -9,6 +9,14 @@
 -- FROM Employee
 -- WHERE salary < (SELECT MAX(salary) FROM Employee);
 
-select max(salary) as SecondHighestSalary
-from employee
-where salary < (select max(salary) from employee);
+-- select max(salary) as SecondHighestSalary
+-- from employee
+-- where salary < (select max(salary) from employee);
+
+SELECT *
+from (
+    select id, salary, RANK() 
+    OVER (ORDER BY salary DESC) AS salary_rank
+    FROM Employees
+)ranked
+where salary_rank = 2;
