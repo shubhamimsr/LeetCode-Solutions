@@ -3,9 +3,9 @@ class Solution {
         if (k <= 1) return 0;  // edge case
 
         int product = 1, result = 0;
-        int i = 0;
+        int i = 0, j=0, n=nums.length;
 
-        for (int j = 0; j < nums.length; j++) {
+        while(j < n){
             product *= nums[j];
 
             while (product >= k && i <= j) {
@@ -14,6 +14,7 @@ class Solution {
             }
 
             result += (j - i + 1);
+            j++;
         }
 
         return result;
