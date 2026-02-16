@@ -8,12 +8,13 @@ class Solution {
         }
         return "";
     }
-private boolean checkPalindromeWord(String word) {
-String reverse = new StringBuffer(word).reverse().toString();
-return word.equals(reverse);
-}
 
-//TO CHECK PALINDROM WE USE THE BELOW LOGIC TOO..
+    private boolean checkPalindromeWord(String word) {
+        String reverse = new StringBuffer(word).reverse().toString();
+        return word.equals(reverse);
+    }
+
+    //TO CHECK PALINDROM WE USE THE BELOW LOGIC TOO..
 
     // private boolean checkPalindromeWord(String word) {
     //     char[] ch = word.toCharArray();
