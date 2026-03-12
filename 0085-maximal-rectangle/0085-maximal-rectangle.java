@@ -27,7 +27,7 @@ class Solution {
                     areas[j] = areas[j] + nums[i][j];
                 }
             }
-            maxArea = Math.max(maxArea,  MAH(areas));
+            maxArea = Math.max(maxArea, MAH(areas));
         }
         return maxArea;
     }
