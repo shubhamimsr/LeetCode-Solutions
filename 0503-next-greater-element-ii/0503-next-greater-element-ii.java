@@ -3,14 +3,14 @@ class Solution {
         Stack<Integer> stack = new Stack<>();
         List<Integer> vector = new ArrayList<>();
         int n = nums.length;
-        
+
         for (int i = 2 * n - 1; i >= 0; i--) {
 
             while (!stack.isEmpty() && stack.peek() <= nums[i % n]) {
                 stack.pop();
             }
 
-            if (i < n) {   // Only fill result for first pass
+            if (i < n) {
                 if (stack.isEmpty()) {
                     vector.add(-1);
                 } else {
@@ -29,14 +29,17 @@ class Solution {
     }
 }
 
-
 // class Solution {
 //     public int[] nextGreaterElements(int[] nums) {
 //         Stack<Integer> stack = new Stack<>();
 //         List<Integer> vector = new ArrayList<>();
 //         int n = nums.length;
-
-//         for (int i = 0; i < n; i++) {
+//         int maxNum = 0;
+//         for (int n1 : nums) {
+//             maxNum = Math.max(maxNum, n1);
+//         }
+//         vector.add(maxNum);
+//         for (int i = n - 2; i >= 0; i--) {
 //             if (stack.isEmpty()) {
 //                 vector.add(-1);
 //             } else if (!stack.isEmpty() && stack.peek() > nums[i]) {
@@ -46,16 +49,17 @@ class Solution {
 //                     stack.pop();
 //                 }
 
-//                 if(stack.isEmpty()){
+//                 if (stack.isEmpty()) {
 //                     vector.add(-1);
-//                 }else if(!stack.isEmpty() && stack.peek() <= nums[i]){
+//                 } else if (!stack.isEmpty() && stack.peek() > nums[i]) {
 //                     vector.add(stack.peek());
 //                 }
 //             }
+//             // else if()
 //             stack.push(nums[i]);
 //         }
 //         Collections.reverse(vector);
-//        return vector.stream()
+//         return vector.stream()
 //                 .mapToInt(Integer::intValue)
 //                 .toArray();
 //     }
