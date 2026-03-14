@@ -8,26 +8,26 @@ class MinStack {
 
     public void push(int val) {
         if (stack.isEmpty()) {
-            stack.push((long)val);
+            stack.push((long) val);
             minElement = val;
         } else {
             if (val >= minElement) {
-                stack.push((long)val);
+                stack.push((long) val);
             } else if (val < minElement) {
                 stack.push(2L * val - minElement);
-                minElement=val;
+                minElement = val;
             }
         }
     }
 
     public void pop() {
-        if(stack.isEmpty()){
+        if (stack.isEmpty()) {
             return;
-        }else{
-            if(stack.peek() >= minElement){
+        } else {
+            if (stack.peek() >= minElement) {
                 stack.pop();
-            }else if(stack.peek() < minElement){
-                minElement = 2L*minElement - stack.peek();
+            } else if (stack.peek() < minElement) {
+                minElement = 2L * minElement - stack.peek();
                 stack.pop();
             }
         }
@@ -39,18 +39,18 @@ class MinStack {
             return -1;
         } else {
             if (top >= minElement) {
-                return (int)top;
+                return (int) top;
             } else if (top < minElement) {
-                return (int)minElement;
+                return (int) minElement;
             }
         }
         return -1;
     }
 
     public int getMin() {
-        if(stack.isEmpty())
+        if (stack.isEmpty())
             return -1;
-        return (int)minElement;
+        return (int) minElement;
     }
 }
 // class MinStack {
