@@ -19,15 +19,6 @@ class Solution {
             }
         }
 
-        //trial prints to see what is stored inside heap
-        // {
-        //     System.out.println("--");
-        //     for(int [] arr: pq){
-        //         System.out.println(Arrays.toString(arr));
-        //     }
-
-        // }
-
         List<Integer> list = new ArrayList<>();
         while (!pq.isEmpty()) {
             list.add(pq.poll()[1]);
