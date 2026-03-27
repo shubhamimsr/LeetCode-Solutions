@@ -22,7 +22,6 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         while (!pq.isEmpty()) {
             list.add(pq.poll()[1]);
-
         }
         Collections.sort(list);
         return list;
