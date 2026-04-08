@@ -17,7 +17,6 @@ class Solution {
             areas[j] = nums[0][j];
         }
         int maxArea = MAH(areas);
-        // int maxArea = area;
 
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < m; j++) {
