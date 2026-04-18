@@ -14,24 +14,22 @@
  * }
  */
 class Solution {
-    
-   
+
     public List<Integer> postorderTraversal(TreeNode root) {
-      
-     List<Integer> resultList = new ArrayList<>();
-        if(resultList == null){
+
+        List<Integer> resultList = new ArrayList<>();
+        if (resultList == null) {
             return resultList;
         }
-        postOrder(root,resultList);
+        postOrder(root, resultList);
         return resultList;
     }
-    
-    public void postOrder(TreeNode root, List<Integer> recursiveList){
-         if(root == null){
-            return;
+
+    public void postOrder(TreeNode root, List<Integer> recursiveList) {
+        if (root != null) {
+            postOrder(root.left, recursiveList);
+            postOrder(root.right, recursiveList);
+            recursiveList.add(root.val);
         }
-        postOrder(root.left, recursiveList);
-        postOrder(root.right, recursiveList);
-        recursiveList.add(root.val);
     }
 }
