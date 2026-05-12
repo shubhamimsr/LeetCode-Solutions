@@ -25,10 +25,10 @@ class Solution {
     private int maxSum(TreeNode root, int[] result){
         if(root==null)  return 0;
 
-        int leftSum = maxSum(root.left, result);
-        int rightSum = maxSum(root.right, result);
+        int leftSum = Math.max(0,maxSum(root.left, result));
+        int rightSum = Math.max(0,maxSum(root.right, result));
 
-        int temp = Math.max((Math.max(leftSum, rightSum)+root.val), root.val);
+        int temp = Math.max(leftSum, rightSum)+root.val;
         int ans = Math.max(temp, leftSum+rightSum+root.val);
         result[0] = Math.max(result[0], ans);
         return temp;
