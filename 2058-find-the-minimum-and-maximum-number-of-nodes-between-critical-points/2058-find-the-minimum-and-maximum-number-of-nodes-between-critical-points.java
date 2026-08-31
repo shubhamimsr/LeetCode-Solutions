@@ -37,8 +37,7 @@ class Solution {
 
         int maxDist = lastCritical - firstCritical;
 
-        if (lastCritical == -1 && firstCritical == -1
-                || (minDist == Integer.MAX_VALUE && maxDist == 0)) {
+        if (minDist == Integer.MAX_VALUE && maxDist == 0) {
             return new int[] { -1, -1 };
         }
         return new int[] { minDist, maxDist };
