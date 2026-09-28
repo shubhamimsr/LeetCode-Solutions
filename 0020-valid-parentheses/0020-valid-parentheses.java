@@ -1,41 +1,24 @@
 class Solution {
     public boolean isValid(String s) {
-        
-       Stack<Character> stack_element = new Stack<Character>();
-          
-        for(Character c: s.toCharArray())
-        {
-             if(s.length()%2 != 0)
-        	{
-        		return false;
-        	}
-        	else if(c == '(' ||c == '{' ||c == '[' )
-        	{
-        		stack_element.push(c);
-                
-        	}
-        	else if(c == ')' && !stack_element.empty() && stack_element.peek() == '(')
-        	{
-        		stack_element.pop();
-                // return false;
-        	}
-        	else if(c == '}' && !stack_element.empty() && stack_element.peek() == '{')
-        	{
-        		stack_element.pop();
-                // return false;
-        	}
-        	else if(c == ']' && !stack_element.empty() && stack_element.peek() == '[')
-        	{
-        		stack_element.pop();
-                // return false;
-        	}
-            else
-            {
-                return false;
-            }
-        }
-        
-        return stack_element.isEmpty();
+        int n = s.length();
 
+        Stack<Character> stack = new Stack<>();
+
+        for (char ch : s.toCharArray()) {
+            if (n % 2 != 0)
+                return false;
+
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else if (ch == ')' && !stack.isEmpty() && stack.peek() == '(')
+                stack.pop();
+            else if (ch == ']' && !stack.isEmpty() && stack.peek() == '[')
+                stack.pop();
+            else if (ch == '}' && !stack.isEmpty() && stack.peek() == '{')
+                stack.pop();
+            else
+                return false;
+        }
+        return stack.isEmpty();
     }
 }
