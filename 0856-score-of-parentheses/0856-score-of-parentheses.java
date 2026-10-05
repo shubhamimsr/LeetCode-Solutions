@@ -1,24 +1,45 @@
-//TC=O(n), SC=O(1)
+import java.util.Stack;
+
 class Solution {
     public int scoreOfParentheses(String s) {
-        int n=s.length();
-        int result=0;
-        int depth=0;
+       Stack<Integer>stack=new Stack<>();
+        stack.push(0);
 
-        for(int i=0;i<n;i++){
-            if(s.charAt(i) == '('){
-                depth++;
-            }else{
-                depth--;
-                if(s.charAt(i-1) == '('){
-                    result += Math.pow(2,depth);
-                    // result+= (1<<depth);
-                }
-            }
+       for(char c:s.toCharArray()){
+        if(c=='(')
+            stack.push(0);
+        else{
+            int top=stack.pop();
+            int currentTop=stack.pop();
+
+            stack.push(currentTop + Math.max(2*top,1));
         }
-        return result;
+       }
+       return stack.peek();
     }
 }
+
+//TC=O(n), SC=O(1)
+// class Solution {
+//     public int scoreOfParentheses(String s) {
+//         int n=s.length();
+//         int result=0;
+//         int depth=0;
+
+//         for(int i=0;i<n;i++){
+//             if(s.charAt(i) == '('){
+//                 depth++;
+//             }else{
+//                 depth--;
+//                 if(s.charAt(i-1) == '('){
+//                     result += Math.pow(2,depth);
+//                     // result+= (1<<depth);
+//                 }
+//             }
+//         }
+//         return result;
+//     }
+// }
 
 // TC=SC=O(n)
 // class Solution {
