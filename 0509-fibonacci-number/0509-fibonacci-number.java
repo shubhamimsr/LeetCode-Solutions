@@ -1,23 +1,24 @@
 class Solution {
     public int fib(int n) {
-        int [] arr = new int[n+1];
-        int first = 0, second = 1, sum = 0;
-        
-        
-        if(n == 0){
-            return 0;
+        int[] memo = new int[n + 1];
+        Arrays.fill(memo, -1);
+
+        //if n==0 or n==1
+        if (n <= 1) {
+            return n;
         }
-        if(n == 1){
-            return 1;
+        return solve(n, memo);
+    }
+
+    private int solve(int n, int[] memo) {
+        if (n <= 1) {
+            return n;
         }
-        arr[0] = first;
-        arr[1] = second;
-        for(int i=0; i<n; i++){
-            sum = first + second;
-            arr[i+1] = sum;
-            first = second;
-            second = sum;
+
+        if (memo[n] != -1) {
+            return memo[n];
         }
-        return arr[n-1];
+
+        return memo[n] = solve((n - 1), memo) + solve((n - 2), memo);
     }
 }
